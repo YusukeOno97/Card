@@ -87,8 +87,6 @@ class ViewController: UIViewController {
 
         if segue.identifier == "ToLikedList" {
             let vc = segue.destination as! LikedListTableViewController
-
-            // LikedListTableViewControllerのlikedName(左)にViewCountrollewのLikedName(右)を代入
             // 名前
             vc.likedName = likedName
             // 職業
@@ -207,7 +205,7 @@ class ViewController: UIViewController {
                 // likeImageを隠す
                 likeImage.isHidden = true
                 // いいねリストに追加
-                likedName.append(nameList[selectedCardCount])
+                setInfo(name: nameList[selectedCardCount])
                 // 次のカードへ
                 selectedCardCount += 1
 
@@ -254,7 +252,7 @@ class ViewController: UIViewController {
             self.personList[self.selectedCardCount].center = CGPoint(x:self.personList[self.selectedCardCount].center.x + 500, y:self.personList[self.selectedCardCount].center.y)
         })
         // いいねリストに追加
-        likedName.append(nameList[selectedCardCount])
+        setInfo(name: nameList[selectedCardCount])
         selectedCardCount += 1
         // 画面遷移
         segue()
