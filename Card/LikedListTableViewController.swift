@@ -13,6 +13,7 @@ class LikedListTableViewController: UITableViewController {
     // いいね」された名前の一覧
     var likedName: [String] = []
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
