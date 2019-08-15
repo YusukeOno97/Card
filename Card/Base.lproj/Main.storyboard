@@ -361,14 +361,14 @@
             <objects>
                 <viewController id="H03-Yb-Mz0" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QVB-lR-13c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Sh1-Xl-vUS">
-                                <rect key="frame" x="73.5" y="223" width="228" height="221"/>
+                                <rect key="frame" x="73.5" y="191" width="228" height="221"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいねした人がいません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxM-IO-SYE">
-                                <rect key="frame" x="0.0" y="479" width="375" height="153"/>
+                                <rect key="frame" x="0.0" y="447" width="375" height="121"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -385,6 +385,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9gF-bz-evk"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVV-r9-jUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

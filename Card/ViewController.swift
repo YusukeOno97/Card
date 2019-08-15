@@ -31,7 +31,29 @@ class ViewController: UIViewController {
     let nameList: [String] = ["津田梅子","ジョージワシントン","ガリレオガリレイ","板垣退助","ジョン万次郎"]
     // 「いいね」をされた名前の配列
     var likedName: [String] = []
+    // 職業の配列
+    let jobList: [String: String] = [
+        "津田梅子": "教師",
+        "ジョージワシントン": "大統領",
+        "ガリレオガリレイ": "物理学者",
+        "板垣退助": "議員",
+        "ジョン万次郎": "冒険家"
+    ]
 
+    // いいねされた人の職業の配列
+    var likedJob: [String] = []
+
+    // 出身の配列
+    let homeTownList: [String: String] = [
+        "津田梅子": "千葉",
+        "ジョージワシントン": "アメリカ",
+        "ガリレオガリレイ": "イタリア",
+        "板垣退助": "高知",
+        "ジョン万次郎": "アメリカ"
+    ]
+
+    // いいねされた人の出身配列
+    var likedHomeTown: [String] = []
 
     // viewのレイアウト処理が完了した時に呼ばれる
     override func viewDidLayoutSubviews() {
@@ -56,6 +78,8 @@ class ViewController: UIViewController {
         selectedCardCount = 0
         // リスト初期化
         likedName = []
+        likedJob = []
+        likedHomeTown = []
     }
 
     // セグエによる遷移前に呼ばれる
@@ -65,7 +89,12 @@ class ViewController: UIViewController {
             let vc = segue.destination as! LikedListTableViewController
 
             // LikedListTableViewControllerのlikedName(左)にViewCountrollewのLikedName(右)を代入
+            // 名前
             vc.likedName = likedName
+            // 職業
+            vc.likedJob = likedJob
+            // 出身地
+            vc.likedHomeTown = likedHomeTown
         }
     }
 
@@ -90,6 +119,28 @@ class ViewController: UIViewController {
         baseCard.center = centerOfCard
         // 角度を戻す
         baseCard.transform = .identity
+    }
+
+    // 画面遷移を管理する処理
+    func segue() {
+        if selectedCardCount >= personList.count {
+            // 遷移処理
+            if likedName.count != 0 {
+                // いいね数が０でないとき
+                performSegue(withIdentifier: "ToLikedList", sender: self)
+            } else {
+                // いいね数が0のとき
+                performSegue(withIdentifier: "ToNoneLiked", sender: nil)
+            }
+        }
+    }
+
+    // いいねされた人の情報を配列に加えていく関数
+    func setInfo(name: String) {
+        // いいねリストに追加
+        likedName.append(name)
+        likedJob.append(jobList["\(name)"]!)
+        likedHomeTown.append(homeTownList["\(name)"]!)
     }
 
     // スワイプ処理
@@ -139,10 +190,9 @@ class ViewController: UIViewController {
                 // 次のカードへ
                 selectedCardCount += 1
 
-                if selectedCardCount >= personList.count {
-                    // 遷移処理
-                    performSegue(withIdentifier: "ToLikedList", sender: self)
-                }
+                // 画面遷移
+                segue()
+
 
             } else if card.center.x > self.view.frame.width - 50 {
                 // 右に大きくスワイプしたときの処理
@@ -160,11 +210,9 @@ class ViewController: UIViewController {
                 likedName.append(nameList[selectedCardCount])
                 // 次のカードへ
                 selectedCardCount += 1
-                
-                if selectedCardCount >= personList.count {
-                    // 遷移処理
-                    performSegue(withIdentifier: "ToLikedList", sender: self)
-                }
+
+                // 画面遷移
+                segue()
 
             } else {
                 // アニメーションをつける
@@ -194,9 +242,8 @@ class ViewController: UIViewController {
 
         selectedCardCount += 1
         // 画面遷移
-        if selectedCardCount >= personList.count {
-            performSegue(withIdentifier: "ToLikedList", sender: self)
-        }
+        segue()
+
     }
 
     // いいねボタン
@@ -210,9 +257,7 @@ class ViewController: UIViewController {
         likedName.append(nameList[selectedCardCount])
         selectedCardCount += 1
         // 画面遷移
-        if selectedCardCount >= personList.count {
-            performSegue(withIdentifier: "ToLikedList", sender: self)
-        }
+        segue()
     }
 }
 

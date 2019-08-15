@@ -10,12 +10,18 @@ import UIKit
 
 class LikedListTableViewController: UITableViewController {
 
-    // いいね」された名前の一覧
+    // 「いいね」された名前の一覧
     var likedName: [String] = []
+    //「「いいね」された職業の一覧
+    var likedJob: [String] = []
+    // 「いいね」された出身地の一覧
+    var likedHomeTown: [String] = []
 
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
     }
 
     // MARK: - Table view data source
