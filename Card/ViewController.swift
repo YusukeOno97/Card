@@ -14,13 +14,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var baseCard: UIView!
     // スワイプ中にgood or bad の表示
     @IBOutlet weak var likeImage: UIImageView!
-    // ユーザーカード
-    @IBOutlet weak var person1: UIView!
-    @IBOutlet weak var person2: UIView!
-    @IBOutlet weak var person3: UIView!
-    @IBOutlet weak var person4: UIView!
-    @IBOutlet weak var person5: UIView!
 
+
+    // ユーザーカード1
+    @IBOutlet weak var person1: UIView!
+    @IBOutlet weak var personImage1: UIImageView!
+    @IBOutlet weak var personName1: UILabel!
+    @IBOutlet weak var personJob1: UILabel!
+    @IBOutlet weak var personHomeTown1: UILabel!
+
+     // ユーザーカード2
+    @IBOutlet weak var person2: UIView!
+    @IBOutlet weak var personImage2: UIImageView!
+    @IBOutlet weak var personName2: UILabel!
+    @IBOutlet weak var personJob2: UILabel!
+
+    @IBOutlet weak var personHomeTown2: UILabel!
+    
     // ベースカードの中心
     var centerOfCard: CGPoint!
     // ユーザーカードの配列
@@ -43,9 +53,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // personListにperson1から5を追加
-        personList.append(person1)
-        personList.append(person2)
-        personList.append(person3)
+
         personList.append(person4)
         personList.append(person5)
     }
